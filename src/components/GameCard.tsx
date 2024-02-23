@@ -37,10 +37,7 @@ const GameCard = ({ game }: Props) => {
 
   return (
     <>
-      <Card boxShadow="0 4px 8px 0 rgba(0,0,0,0.3)" _hover={{
-        transform: "scale(1.05)",
-        transition: "transform 0.15s ease-in",
-      }}>
+      <Card boxShadow="0 4px 8px 0 rgba(0,0,0,0.3)" >
         <Image
           src={getCroppedImageUrl(game.background_image)}
           onClick={showDetails}
