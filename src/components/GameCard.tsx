@@ -62,7 +62,7 @@ const GameCard = ({ game }: Props) => {
             transition: "background-color 0.3s ease-in-out",
           }}
         />
-        <ModalContent style={{ backgroundColor: "grey.500" }}>
+        <ModalContent style={{ backgroundColor: "rgba(17, 17, 17, 0.7)" }}>
           <ModalHeader>{game.name}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
