@@ -13,6 +13,7 @@ const GameCardContainer = ({ children }: Props) => {
       _hover={{
         transform: "scale(1.05)",
         transition: "transform 0.15s ease-in",
+        cursor: "pointer",
       }}
     >
       {children}
