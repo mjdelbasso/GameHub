@@ -5,8 +5,8 @@ import NavBar from "../components/NavBar";
 const Layout = () => {
   return (
     <>
-      <NavBar />
-      <Box padding={5}>
+      <Box justifyContent="space-between">
+        <NavBar />
         <Outlet />
       </Box>
     </>
