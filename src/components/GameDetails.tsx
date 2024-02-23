@@ -5,11 +5,11 @@ import {
   Spacer,
   Spinner,
 } from "@chakra-ui/react";
+import useGame from "../hooks/useGame";
 import ExpandableText from "./ExpandableText";
 import GameAttributes from "./GameAttributes";
 import GameScreenshot from "./GameScreenshot";
 import GameTrailer from "./GameTrailer";
-import useGame from "../hooks/useGame";
 
 interface Props {
   slug: string;

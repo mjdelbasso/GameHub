@@ -13,10 +13,10 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import Game from "../entities/Game";
-import GameDetailPage from "./GameDetails";
 import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
 import Emoji from "./Emoji";
+import GameDetailPage from "./GameDetails";
 import PlatformIconList from "./PlatformIconList";
 
 interface Props {
@@ -37,7 +37,7 @@ const GameCard = ({ game }: Props) => {
 
   return (
     <>
-      <Card boxShadow="0 4px 8px 0 rgba(0,0,0,0.3)" >
+      <Card boxShadow="0 4px 8px 0 rgba(0,0,0,0.3)">
         <Image
           src={getCroppedImageUrl(game.background_image)}
           onClick={showDetails}
