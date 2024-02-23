@@ -41,7 +41,7 @@ const GameScreenshot = ({ gameId }: Props) => {
       {selectedImage && (
         <Modal isOpen={true} onClose={closeImage} size="full">
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent display="flex" alignItems="center" justifyContent="center">
             <ModalCloseButton />
             <ModalBody p={0}>
               <Image src={selectedImage} alt="Game screenshot" />
