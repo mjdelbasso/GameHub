@@ -1,4 +1,4 @@
-import { Image, SimpleGrid, Modal, ModalOverlay, ModalContent, ModalBody } from "@chakra-ui/react";
+import { Image, SimpleGrid, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton } from "@chakra-ui/react";
 import { useState } from "react";
 import useScreenshots from "../hooks/useScreenshots";
 
@@ -38,15 +38,17 @@ const GameScreenshot = ({ gameId }: Props) => {
           />
         ))}
       </SimpleGrid>
-
-      <Modal isOpen={selectedImage !== null} onClose={closeImage}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalBody>
-            <Image src={selectedImage || ""} alt="Game screenshot" />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+      {selectedImage && (
+        <Modal isOpen={true} onClose={closeImage} size="full">
+          <ModalOverlay />
+          <ModalContent>
+            <ModalCloseButton />
+            <ModalBody p={0}>
+              <Image src={selectedImage} alt="Game screenshot" />
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      )}
     </>
   );
 };
