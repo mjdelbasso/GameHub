@@ -1,5 +1,15 @@
-import { Image, SimpleGrid, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton } from "@chakra-ui/react";
+import {
+  Image,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalOverlay,
+  SimpleGrid,
+} from "@chakra-ui/react";
 import { useState } from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import useScreenshots from "../hooks/useScreenshots";
 
 interface Props {
@@ -8,14 +18,16 @@ interface Props {
 
 const GameScreenshot = ({ gameId }: Props) => {
   const { data, error, isLoading } = useScreenshots(gameId);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null
+  );
 
-  const openImage = (imageUrl: string) => {
-    setSelectedImage(imageUrl);
+  const openImage = (index: number) => {
+    setSelectedImageIndex(index);
   };
 
   const closeImage = () => {
-    setSelectedImage(null);
+    setSelectedImageIndex(null);
   };
 
   if (isLoading) return null;
@@ -24,7 +36,7 @@ const GameScreenshot = ({ gameId }: Props) => {
   return (
     <>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
-        {data?.results.map((screenshot) => (
+        {data?.results.map((screenshot, index) => (
           <Image
             _hover={{
               transform: "scale(1.03)",
@@ -33,19 +45,30 @@ const GameScreenshot = ({ gameId }: Props) => {
             key={screenshot.id}
             src={screenshot.image}
             alt="Game screenshot"
-            onClick={() => openImage(screenshot.image)}
+            onClick={() => openImage(index)}
             cursor="pointer"
           />
         ))}
       </SimpleGrid>
-      {selectedImage && (
-        <Modal isOpen={true} onClose={closeImage} size="full">
+      {selectedImageIndex !== null && (
+        <Modal isOpen={true} onClose={closeImage} size="xl">
           <ModalOverlay />
-          <ModalContent display="flex" alignItems="center" justifyContent="center">
-            <ModalCloseButton />
+          <ModalContent>
             <ModalBody p={0}>
-              <Image src={selectedImage} alt="Game screenshot" />
+              <Carousel
+                showArrows={true}
+                showThumbs={false}
+                selectedItem={selectedImageIndex}
+                onClickThumb={() => closeImage()}
+              >
+                {data?.results.map((screenshot) => (
+                  <div key={screenshot.id}>
+                    <img src={screenshot.image} alt="Game screenshot" />
+                  </div>
+                ))}
+              </Carousel>
             </ModalBody>
+            <ModalCloseButton />
           </ModalContent>
         </Modal>
       )}
