@@ -10,6 +10,8 @@ export interface Game {
   parent_platforms: { platform: Platform }[];
   metacritic: number;
   rating_top: number;
+  slug: string;
+  description_raw: string;
 }
 
 const apiClient = new APIClient<Game>("/games");
@@ -31,6 +33,7 @@ const useGames = () => {
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
+    initialPageParam: 1, // Add initialPageParam here
     staleTime: ms("24hs"), // 24 hours
   });
 };
