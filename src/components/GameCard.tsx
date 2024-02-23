@@ -37,7 +37,10 @@ const GameCard = ({ game }: Props) => {
 
   return (
     <>
-      <Card>
+      <Card boxShadow="0 4px 8px 0 rgba(0,0,0,0.3)" _hover={{
+        transform: "scale(1.05)",
+        transition: "transform 0.15s ease-in",
+      }}>
         <Image
           src={getCroppedImageUrl(game.background_image)}
           onClick={showDetails}
@@ -55,10 +58,10 @@ const GameCard = ({ game }: Props) => {
           </Heading>
         </CardBody>
       </Card>
-      <Modal isOpen={isModalOpen} onClose={closeModal} size="6xl">
+      <Modal isOpen={isModalOpen} onClose={closeModal} size="6xl" isCentered>
         <ModalOverlay
           style={{
-            backgroundColor: "rgba(0, 0, 0, .8)",
+            backgroundColor: "rgba(0, 0, 0, 1)",
             transition: "background-color 0.3s ease-in-out",
           }}
         />
