@@ -59,6 +59,8 @@ const GameScreenshot = ({ gameId }: Props) => {
               <Carousel
                 showArrows={true}
                 showThumbs={false}
+                emulateTouch={true}
+                infiniteLoop={true}
                 selectedItem={selectedImageIndex}
                 onClickThumb={() => closeImage()}
               >
