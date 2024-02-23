@@ -51,7 +51,7 @@ const GameScreenshot = ({ gameId }: Props) => {
         ))}
       </SimpleGrid>
       {selectedImageIndex !== null && (
-        <Modal isOpen={true} onClose={closeImage} size="xl">
+        <Modal isOpen={true} onClose={closeImage} size="4xl" isCentered>
           <ModalOverlay />
           <ModalContent>
             <ModalBody p={0}>
