@@ -1,8 +1,8 @@
 {
-    "rewrites": [
+    "routes": [
         {
-            "source": "/games/:slug",
-            "destination": "/"
+            "src": "/games/:slug",
+            "dest": "/"
         }
     ]
 }
