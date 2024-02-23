@@ -3,22 +3,19 @@ import {
   Heading,
   SimpleGrid,
   Spacer,
-  Spinner
+  Spinner,
 } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
-import ExpandableText from "../components/ExpandableText";
-import GameAttributes from "../components/GameAttributes";
-import GameScreenshot from "../components/GameScreenshot";
-import GameTrailer from "../components/GameTrailer";
+import ExpandableText from "./ExpandableText";
+import GameAttributes from "./GameAttributes";
+import GameScreenshot from "./GameScreenshot";
+import GameTrailer from "./GameTrailer";
 import useGame from "../hooks/useGame";
 
 interface Props {
   slug: string;
-
 }
 
-const GameDetailPage = ({slug} : Props) => {
- 
+const GameDetails = ({ slug }: Props) => {
   const { data: game, isLoading, error } = useGame(slug!);
 
   if (isLoading) return <Spinner />;
@@ -43,4 +40,4 @@ const GameDetailPage = ({slug} : Props) => {
   );
 };
 
-export default GameDetailPage;
+export default GameDetails;

@@ -42,6 +42,7 @@ const GameScreenshot = ({ gameId }: Props) => {
               transform: "scale(1.03)",
               transition: "transform 0.15s ease-in",
             }}
+            borderRadius={10}
             key={screenshot.id}
             src={screenshot.image}
             alt="Game screenshot"

@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import Game from "../entities/Game";
-import GameDetailPage from "../pages/GameDetailPage";
+import GameDetailPage from "./GameDetails";
 import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
 import Emoji from "./Emoji";
@@ -55,9 +55,14 @@ const GameCard = ({ game }: Props) => {
           </Heading>
         </CardBody>
       </Card>
-      <Modal isOpen={isModalOpen} onClose={closeModal} size="5xl">
-        <ModalOverlay />
-        <ModalContent>
+      <Modal isOpen={isModalOpen} onClose={closeModal} size="6xl">
+        <ModalOverlay
+          style={{
+            backgroundColor: "rgba(0, 0, 0, .8)",
+            transition: "background-color 0.3s ease-in-out",
+          }}
+        />
+        <ModalContent style={{ backgroundColor: "grey.500" }}>
           <ModalHeader>{game.name}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
