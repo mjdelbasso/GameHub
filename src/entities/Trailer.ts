@@ -4,6 +4,6 @@ export interface Trailer {
   data: {
     max: string;
     480: string;
-  }
+  };
   preview: string;
 }
