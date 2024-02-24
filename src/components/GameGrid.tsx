@@ -20,7 +20,7 @@ const GameGrid = () => {
       dataLength={fetchedGamesCoun}
       hasMore={!!hasNextPage}
       next={() => fetchNextPage()}
-      loader={<Spinner />}
+      loader=""
     >
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}

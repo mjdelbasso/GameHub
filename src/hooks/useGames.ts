@@ -22,9 +22,8 @@ const useGames = () => {
           },
         })
         .then((response) => {
-          const filteredGames = response.results.filter(
-            (game) => game.background_image !== null
-          );
+          const filteredGames = response.results
+            .filter((game) => game.background_image !== null);
           return {
             ...response,
             results: filteredGames,
@@ -33,8 +32,8 @@ const useGames = () => {
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
-    initialPageParam: 1, 
-    staleTime: ms("24hs"), 
+    initialPageParam: 1,
+    staleTime: ms("24hs"),
   });
 };
 
